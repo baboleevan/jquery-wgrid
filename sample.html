@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<!--//
+This web page has been developed by Wani.
+ - me@wani.kr
+ - http://wani.kr
+-->
+<html lang="ko">
+<head>
+
+<title>Title</title>
+<meta charset="utf-8" />
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="init.css" />
+<style type="text/css">
+div.container {max-width:1000px;margin-left:auto;margin-right:auto;}
+div.container div.item {width:200px;margin:10px 5px 0 5px;padding:10px;background:#eee;text-align:center;font-size:15px;color:#777;}
+
+div.container:after {clear:both;display:table;content:"";}
+
+nav.container {max-width:990px;margin-left:auto;margin-right:auto;}
+</style>
+</head>
+<body>
+<nav class="container">
+	<button id="appendItem">Add Item</button>
+</nav>
+<div class="container" id="wbricks">
+	<div class="item">1</div>
+	<div class="item">2</div>
+	<div class="item">3</div>
+	<div class="item">4</div>
+	<div class="item">5</div>
+	<div class="item">6</div>
+	<div class="item">7</div>
+	<div class="item">8</div>
+	<div class="item">9</div>
+	<div class="item">10</div>
+	<div class="item">11</div>
+	<div class="item">12</div>
+	<div class="item">13</div>
+	<div class="item">14</div>
+	<div class="item">15</div>
+	<div class="item">16</div>
+	<div class="item">17</div>
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jquery.wgrid.min.js"></script>
+<script type="text/javascript">
+;(function($){
+	var init = function() {
+		$( 'div.container > div.item' ).each(function() {
+			$(this).height( Math.floor(Math.random() * 200) + 50 );
+		});
+	};
+
+	init();
+
+	$( '#wbricks' ).wgrid();
+
+	$( '#appendItem' ).bind('click', function() {
+		for(var i = 0; i < 10; i++) {
+			$('<div>').addClass('item appended').text( 'appended' + i).height( Math.floor(Math.random() * 200)+50 ).appendTo( $( 'div.container' ) );
+		}
+		$( '#wbricks' ).wgrid();
+
+	});
+
+
+})(jQuery);	
+</script>
+</body>
+</html>
